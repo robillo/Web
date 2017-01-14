@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.io_16;
+package com.appbusters.robinkamboj.io_16.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import com.appbusters.robinkamboj.io_16.R;
 import com.bumptech.glide.Glide;
 
 //api key: 13befb0c6409e8c61c5e9ec4265a1d1c
