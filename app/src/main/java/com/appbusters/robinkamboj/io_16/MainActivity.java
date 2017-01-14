@@ -12,6 +12,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
+//api key: 13befb0c6409e8c61c5e9ec4265a1d1c
+
 public class MainActivity extends AppCompatActivity {
 
     ImageView imageView1, imageView2;
