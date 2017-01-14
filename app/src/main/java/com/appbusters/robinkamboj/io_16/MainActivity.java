@@ -28,8 +28,19 @@ public class MainActivity extends AppCompatActivity {
 
         Glide
                 .with(this)
-                .load("https://scontent.fdel1-1.fna.fbcdn.net/v/t1.0-9/13438900_1181113321951422_3637872292833892328_n.jpg?oh=44e678599d3de4d5aae961b56e836adb&oe=58DB10E3")
+                .load("http://vignette4.wikia.nocookie.net/batman/images/2/2f/Robin.jpg/revision/latest?cb=20080527194531")
+                .centerCrop()
+                .placeholder(R.drawable.placeholder)
+                .crossFade()
                 .into(imageView1);
+
+        Glide
+                .with(this)
+                .load("https://www.allaboutbirds.org/guide/PHOTO/LARGE/009538-060-02.jpg")
+                .centerCrop()
+                .placeholder(R.drawable.placeholder)
+                .crossFade()
+                .into(imageView2);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
