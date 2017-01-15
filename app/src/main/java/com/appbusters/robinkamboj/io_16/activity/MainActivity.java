@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.appbusters.robinkamboj.io_16.R;
+import com.appbusters.robinkamboj.io_16.adapter.MoviesAdapter;
 import com.appbusters.robinkamboj.io_16.model.Movies;
 import com.appbusters.robinkamboj.io_16.model.MoviesResponse;
 import com.appbusters.robinkamboj.io_16.rest.ApiClient;
@@ -44,11 +47,15 @@ public class MainActivity extends AppCompatActivity {
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.movies_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         Call<MoviesResponse> call = apiService.getTopRatedMovies(API_KEY);
         call.enqueue(new Callback<MoviesResponse>() {
             @Override
             public void onResponse(Call<MoviesResponse>call, Response<MoviesResponse> response) {
                 List<Movies> movies = response.body().getResults();
+                recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext()));
                 Log.d(TAG, "Number of movies received: " + movies.size());
             }
 
